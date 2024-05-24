@@ -30,7 +30,7 @@ def fit_regression_model(X, y):
     Hint 2: while woring you can use the print function to print the loss every 1000 epochs.
     Hint 3: you can use the previos_loss variable to stop the training when the loss is not changing much.
     """
-    learning_rate = 0.01 # Pick a better learning rate
+    learning_rate = 0.08 # Pick a better learning rate
     num_epochs = 100 # Pick a better number of epochs
     input_features = X.shape[1] # extract the number of features from the input `shape` of X
     output_features = y.shape[1] # extract the number of features from the output `shape` of y
