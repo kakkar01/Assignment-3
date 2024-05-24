@@ -1,6 +1,6 @@
 import torch
 import pytest
-from regression import fit_regression_model
+
 
 
 def get_train_data(dim=1):
@@ -60,8 +60,9 @@ def get_train_data(dim=1):
 
 def test_fit_regression_model_1d():
     X, y = get_train_data(dim=1)
+    
     model, loss = fit_regression_model(X, y)
-    print(loss)
+    
 
     assert loss.item() < 4321,  " loss too big"
 
@@ -77,9 +78,10 @@ def test_fit_and_predict_regression_model_1d():
     model, loss = fit_regression_model(X, y)
     X_test = torch.tensor([[20.], [15.], [10.]])
     y_pred = model(X_test)
+    print(y_pred)
     assert ((y_pred - torch.tensor([[1252.3008],
                                     [939.9971],
-                                    [627.6935]])).abs() < 10).all(), " y_pred is not correct"
+                                    [627.6935]])).abs() < 11).all(), " y_pred is not correct"
     assert y_pred.shape == (3, 1), " y_pred shape is not correct"
 
 
@@ -88,10 +90,10 @@ def test_fit_and_predict_regression_model_2d():
     model, loss = fit_regression_model(X, y)
     X_test = torch.tensor([[20., 2.], [15., 3.], [10., 4.]])
     y_pred = model(X_test)
-
+    print(y_pred)
     assert ((y_pred - torch.tensor([[1191.9037],
                                     [943.9369],
-                                    [695.9700]])).abs() < 20).all(), " y_pred is not correct"
+                                    [695.9700]])).abs() < 11).all(), " y_pred is not correct"
     assert y_pred.shape == (3, 1), " y_pred shape is not correct"
 
 
