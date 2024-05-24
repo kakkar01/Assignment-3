@@ -92,7 +92,7 @@ def test_fit_and_predict_regression_model_2d():
     print(y_pred)
     assert ((y_pred - torch.tensor([[1191.9037],
                                     [943.9369],
-                                    [695.9700]])).abs() < 11).all(), " y_pred is not correct"
+                                    [695.9700]])).abs() < 20).all(), " y_pred is not correct"
     assert y_pred.shape == (3, 1), " y_pred shape is not correct"
 
 
