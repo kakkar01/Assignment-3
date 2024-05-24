@@ -1,6 +1,6 @@
 import torch
 import pytest
-
+from regression import fit_regression_model
 
 
 def get_train_data(dim=1):
@@ -56,7 +56,6 @@ def get_train_data(dim=1):
     else:
         raise ValueError("dim must be 1 or 2")
     return X, y
-
 
 def test_fit_regression_model_1d():
     X, y = get_train_data(dim=1)
