@@ -36,7 +36,7 @@ def fit_regression_model(X, y):
     output_features = y.shape[1] # extract the number of features from the output `shape` of y
     model = create_linear_regression_model(input_features, output_features)
     
-    loss_fn = nn.MSELoss() # Use mean squared error loss, like in class
+    loss_fn = nn.L1Loss() # Use mean squared error loss, like in class
 
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
